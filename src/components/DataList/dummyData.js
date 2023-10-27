@@ -1,0 +1,83 @@
+export const deviceItems = [
+  {
+    name: "Razor Drill",
+    prod: "airsyn",
+    loc: "Office Lounge",
+    stat: "ON",
+    id: "guysguew",
+  },
+  {
+    name: "Razor Drill",
+    prod: "proxie",
+    loc: "Office Lounge",
+    stat: "OFF",
+    id: "guyxgsguew",
+  },
+  {
+    name: "Razor Drill",
+    prod: "proxie",
+    loc: "Office Lounge",
+    stat: "ON",
+    id: "guysgusggdew",
+  },
+  {
+    name: "Razor Drill",
+    prod: "airsyn",
+    loc: "Office Lounge",
+    stat: "OFF",
+    id: "guysdgdguew",
+  },
+  {
+    name: "Razor Drill",
+    prod: "proxie",
+    loc: "Office Lounge",
+    stat: "OFF",
+    id: "guysgyryruew",
+  },
+  {
+    name: "Razor Drill",
+    prod: "airsyn",
+    loc: "Office Lounge",
+    stat: "ON",
+    id: "guysgucbxnew",
+  },
+  {
+    name: "Razor Drill",
+    prod: "airsyn",
+    loc: "Office Lounge",
+    stat: "ON",
+    id: "guysgutwetew",
+  },
+  {
+    name: "Razor Drill",
+    prod: "proxie",
+    loc: "Office Lounge",
+    stat: "ON",
+    id: "guysguvnbxew",
+  },
+  {
+    name: "Razor Drill",
+    prod: "airsyn",
+    loc: "Office Lounge",
+    stat: "ON",
+    id: "guysgudyerew",
+  },
+  {
+    name: "Razor Drill",
+    prod: "proxie",
+    loc: "Office Lounge",
+    stat: "ON",
+    id: "guysguxnxvnxvew",
+  },
+];
+
+export const userItems = [
+  { name: "James Charles", loc: "james123@gmail.com", stat: "Online" },
+  { name: "Grace Morgan", loc: "grace123@gmail.com", stat: "Offline" },
+  { name: "Anita Ling", loc: "anita123@gmail.com", stat: "Online" },
+  { name: "Cathy", loc: "cathy123@gmail.com", stat: "Offline" },
+  { name: "Autino Milano", loc: "austin@gmail.com", stat: "Offline" },
+  { name: "Mary Jane", loc: "mary@gmail.com", stat: "Online" },
+  { name: "John Doe", loc: "john@gmail.com", stat: "Online" },
+  { name: "Manhattan", loc: "manhattan@gmail.com", stat: "Online" },
+];

@@ -1,0 +1,238 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animation-pulse {
+  /* box-shadow: 0 0 0 20px rgba(229, 62, 62, 0.5);
+  transform: scale(0.8); */
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0 rgba(229, 62, 62, 1);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 60px rgba(229, 62, 62, 0);
+  }
+
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+/* width */
+.scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* on 640px make scroll width 0*/
+@media screen and (max-width: 640px) {
+  .scroll::-webkit-scrollbar {
+    width: 0px;
+  }
+  .scroll::-webkit-scrollbar:horizontal {
+    height: 0;
+    width: 0;
+    display: none;
+  }
+
+  .scroll::-webkit-scrollbar-thumb:horizontal {
+    display: none;
+  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #8705051f;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* .swiper-pagination {
+  margin-top: 8rem !important;
+  border: 2px solid red;
+} */
+
+.swiper-pagination-bullet-active {
+  background-color: #fff !important;
+}
+
+.carousel-item {
+  display: none;
+  margin-right: -100%;
+  backface-visibility: hidden;
+  -webkit-transition: transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
+}
+.carousel-item.active {
+  display: block;
+}
+.carousel-fade .carousel-item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+.carousels-fade .carousels-item.active {
+  opacity: 1;
+}
+
+.svg-icon-on {
+  width: 3em;
+  height: 3em;
+}
+
+.svg-icon-on path,
+.svg-icon-on polygon,
+.svg-icon-on rect {
+  fill: #06cd3b;
+}
+
+.svg-icon-on circle {
+  stroke: #06cd3b;
+  stroke-width: 1;
+}
+
+.svg-icon-off {
+  width: 3em;
+  height: 3em;
+}
+
+.svg-icon-off path,
+.svg-icon-off polygon,
+.svg-icon-off rect {
+  fill: #555756;
+}
+
+.svg-icon-off circle {
+  stroke: #555756;
+  stroke-width: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-control::file-selector-button {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .form-control::-webkit-file-upload-button {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .form-switch .form-check-input {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .form-range::-webkit-slider-thumb {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .form-range::-moz-range-thumb {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .form-floating > label {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .fade {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .collapsing {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .collapsing.collapse-horizontal {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .accordion-button::after {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .modal.fade .modal-dialog {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .carousel-item {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .carousel-fade .active.carousel-item-start {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .carousel-fade .active.carousel-item-end {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .carousel-control-prev {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .carousel-control-next {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .carousel-indicators [data-bs-target] {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .spinner-border {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+  }
+  .spinner-grow {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+  }
+}
