@@ -1,6 +1,7 @@
 import React from "react";
 import "../components/Auth/auth.css";
 import { Outlet } from "react-router-dom";
+import AnimatedLogo from "../components/AnimatedLogo";
 
 const Auth = () => {
   return (
@@ -10,7 +11,7 @@ const Auth = () => {
         {/* start of Left hand side background image */}
         <div className="h-screen hidden md:flex w-1/3 pt-7 px-5 justify-start auth relative">
           <div>
-            <img src="/logo/REACTOCHIME.svg" alt="" className="h-20" />
+            <AnimatedLogo className="w-[10rem]" />
           </div>
         </div>
         {/* end of Left hand side background image */}
