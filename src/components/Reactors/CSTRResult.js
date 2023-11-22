@@ -20,7 +20,7 @@ const CSTRResult = ({ result }) => {
         {/* reaction rate */}
         <div className="space-y-2 w-full">
           <p className="font-semibold text-sm capitalize">Reaction Rate</p>
-          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[500px] border py-2 border-borderColor rounded-md px-3">
+          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[56px] border py-2 border-borderColor rounded-md px-3">
             {reactionRate}
           </div>
           <p className="font-semibold text-xs capitalize">*Unit: mol/(m³s)</p>
@@ -28,7 +28,7 @@ const CSTRResult = ({ result }) => {
         {/* residence time */}
         <div className="space-y-2 w-full">
           <p className="font-semibold text-sm capitalize">Residence Time</p>
-          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[500px] border py-2 border-borderColor rounded-md px-3">
+          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[56px] border py-2 border-borderColor rounded-md px-3">
             {residenceTime}
           </div>
           <p className="font-semibold text-xs capitalize">*Unit: seconds</p>
@@ -36,7 +36,7 @@ const CSTRResult = ({ result }) => {
         {/* exit concentration */}
         <div className="space-y-2 w-full">
           <p className="font-semibold text-sm capitalize">Exit Concentration</p>
-          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[500px] border py-2 border-borderColor rounded-md px-3">
+          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[56px] border py-2 border-borderColor rounded-md px-3">
             {exitConcentration}
           </div>
           <p className="font-semibold text-xs capitalize">*Unit: mol/m³</p>

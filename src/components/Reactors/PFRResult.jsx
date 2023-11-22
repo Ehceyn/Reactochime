@@ -3,14 +3,14 @@ import React, { useState, useEffect } from "react";
 const PFRResult = ({ result }) => {
   const [reactionRate, setReactionRate] = useState("");
   const [residenceTime, setResidenceTime] = useState("");
-  const [exitConcentration, setExitConcentration] = useState("");
+  const [distanceAtConversion, setDistanceAtConversion] = useState("");
 
   useEffect(() => {
     console.log(result);
     // Update state when result prop changes
     setReactionRate(result?.reaction_rate || "");
-    setResidenceTime(result?.residence_time || "");
-    setExitConcentration(result?.exit_concentration || "");
+    // setResidenceTime(result?.residence_time || "");
+    setDistanceAtConversion(result?.distance_at_conversion || "");
   }, [result]);
 
   return (
@@ -20,7 +20,7 @@ const PFRResult = ({ result }) => {
         {/* reaction rate */}
         <div className="space-y-2 w-full">
           <p className="font-semibold text-sm capitalize">Reaction Rate</p>
-          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[500px] border py-2 border-borderColor rounded-md px-3">
+          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[56px] border py-2 border-borderColor rounded-md px-3">
             {reactionRate}
           </div>
           <p className="font-semibold text-xs capitalize">*Unit: mol/(m³s)</p>
@@ -38,8 +38,8 @@ const PFRResult = ({ result }) => {
           <p className="font-semibold text-sm capitalize">
             Distance at Conversion
           </p>
-          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[500px] border py-2 border-borderColor rounded-md px-3">
-            {exitConcentration}
+          <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[56px] border py-2 border-borderColor rounded-md px-3">
+            {distanceAtConversion}
           </div>
           <p className="font-semibold text-xs capitalize">*Unit: m</p>
         </div>
