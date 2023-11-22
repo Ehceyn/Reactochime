@@ -50,9 +50,14 @@ const PFR = ({ onHandlePFRSubmit }) => {
   return (
     <>
       <div className="bg-backgroundDark space-y-5 px-5 py-5 border border-borderColor rounded-lg">
-        <h4 className="font-raleway font-bold sm:text-lg capitalize  ">
-          Parameters for PFR
-        </h4>
+        <div className="space-y-2">
+          <h4 className="font-raleway font-bold sm:text-lg capitalize  ">
+            Parameters for PFR
+          </h4>
+          <p className="font-semibold text-sm capitalize">
+            (*First-order Reactions Only)
+          </p>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
           {/* Rate Constant Input */}
           <div className="space-y-2 w-full">
