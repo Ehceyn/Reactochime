@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import CustomInput from "../CustomInput/CustomInput";
+import Loader from "../Auth/Loader/Loader";
 
-const CSTR = ({ onHandleCSTRSubmit }) => {
+const CSTR = ({ onHandleCSTRSubmit, loading }) => {
   // State to manage input values and error messages
   const [rateConstant, setRateConstant] = useState(0.0);
   const [inletConcentration, setInletConcentration] = useState(0.0);
@@ -120,11 +121,17 @@ const CSTR = ({ onHandleCSTRSubmit }) => {
         <div className="w-full flex justify-end">
           {/* Proceed Button */}
           <button
+            disabled={loading}
             type="button"
-            className={`flex uppercase justify-center w-fit items-center px-5 py-3 grow sm:grow-0 font-bold rounded-md border text-backgroundRed border-backgroundRed hover:brightness-90 tracking-widest font-poppins`}
+            className={`flex uppercase space-x-2 justify-center w-fit items-center px-5 py-3 grow sm:grow-0 font-bold rounded-md border  ${
+              loading
+                ? "text-[rgba(210,2,2,0.42)] border-[rgba(210,2,2,0.42)]"
+                : "text-backgroundRed border-backgroundRed"
+            } hover:brightness-90 tracking-widest font-poppins`}
             onClick={handleProceedClick}
           >
-            Proceed
+            {loading && <Loader color={"text-backgroundRed"} />}
+            <span>Proceed</span>
           </button>
         </div>
       </div>

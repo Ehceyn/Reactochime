@@ -11,6 +11,7 @@ import { useEffect } from "react";
 
 const DashboardComponent = () => {
   const [alertDisplay, setAlertDisplay] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { dipsatchPageTitle } = useContext(HeaderContext);
   const [activeTabs, setActiveTabs] = useState("1");
   const [result, setResult] = useState(null);
@@ -32,8 +33,9 @@ const DashboardComponent = () => {
   };
 
   const handleCSTRSubmit = async (data) => {
+    setLoading(true);
     const response = await fetch(
-      "http://ehceyn.pythonanywhere.com/cstr_calculate",
+      "https://ehceyn.pythonanywhere.com/cstr_calculate",
       {
         method: "POST",
         headers: {
@@ -45,16 +47,13 @@ const DashboardComponent = () => {
 
     const responseData = await response.json();
     setResult(responseData);
+    setLoading(false);
   };
-  const handlePFRSubmit = async () => {
-    const data = {
-      rate_constant: 0.05,
-      inlet_concentration: 1.0,
-      desired_conversion: 0.9, // Updated to reflect desired conversion for PFR
-    };
+  const handlePFRSubmit = async (data) => {
+    setLoading(true);
 
     const response = await fetch(
-      "http://ehceyn.pythonanywhere.com/pfr_calculate",
+      "https://ehceyn.pythonanywhere.com/pfr_calculate",
       {
         method: "POST",
         headers: {
@@ -66,6 +65,7 @@ const DashboardComponent = () => {
 
     const responseData = await response.json();
     setResult(responseData);
+    setLoading(true);
   };
 
   useEffect(() => {
@@ -142,12 +142,18 @@ const DashboardComponent = () => {
             {/* CSTR+PFR Inputs DIV */}
             {activeTabs === "1" ? (
               <>
-                <CSTR onHandleCSTRSubmit={(data) => handleCSTRSubmit(data)} />
+                <CSTR
+                  onHandleCSTRSubmit={(data) => handleCSTRSubmit(data)}
+                  loading={loading}
+                />
                 {result !== null && <CSTRResult result={result} />}
               </>
             ) : (
               <>
-                <PFR onHandlePFRSubmit={(data) => handlePFRSubmit(data)} />
+                <PFR
+                  onHandlePFRSubmit={(data) => handlePFRSubmit(data)}
+                  loading={loading}
+                />
                 {result !== null && <PFRResult result={result} />}
               </>
             )}
