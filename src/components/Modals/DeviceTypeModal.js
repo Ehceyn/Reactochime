@@ -11,7 +11,8 @@
 // onClickButton: function
 // display: boolean
 
-import React, { useContext, useState } from "react";
+import React from "react";
+import ReactDOM from "react-dom";
 import { authLeft } from "../../animations/animations";
 import { scaleUp } from "../../animations/animations";
 import { motion } from "framer-motion";
@@ -19,7 +20,9 @@ import Loader from "../Auth/Loader/Loader";
 import Welcome from "../icons/Welcome";
 
 const DeviceTypeModal = (props) => {
-  return (
+  const modalRoot = document.getElementById("modal-root");
+  if (!modalRoot) return null;
+  const modalComponent = (
     <motion.section
       variants={authLeft}
       initial="initial"
@@ -32,7 +35,7 @@ const DeviceTypeModal = (props) => {
           delay: 2,
         },
       }}
-      className={`w-full h-screen font-raleway bg-[#121212B2] shadow-sm text-textGrey fixed inset-0 z-[300000] flex items-center  justify-center `}
+      className={`w-full h-screen font-raleway bg-[#121212B2] shadow-sm text-textGrey fixed inset-0 z-[500000] flex items-center  justify-center `}
       onClick={props.toggleDevice}
     >
       <motion.div
@@ -48,32 +51,30 @@ const DeviceTypeModal = (props) => {
           <Welcome width="301" height="60" />
         </div>
         <div className="w-full text-center ">
-          <p className="font-bold text-textGreyLight text-xl font-poppins">
-            Welcome, James
+          <p className="font-bold text-lg font-poppins">About Reactochime</p>
+          <p className="mt-2">
+            Let's help you setup your device Let's help you setup your device
+            Let's help you setup your device Let's help you setup your device
+            Let's help you setup your device Let's help you setup your device
+            Let's help you setup your device
           </p>
-          <p className="mt-2">Let's help you setup your device</p>
         </div>
         {/* Heading end */}
         {/* Add device redirect buttons start */}
         <article className="flex items-center justify-between w-full mt-7">
           <button
+            onClick={props.onClickButton}
             type="button"
             className={`flex uppercase justify-center items-center px-4 h-12 w-24 grow font-bold text-textGreyLight rounded-md bg-backgroundRed hover:brightness-90 tracking-widest font-poppins`}
           >
-            <a
-              href="https://www.Reactochime.africa"
-              target="_blank"
-              rel="noopener noreferrer"
-              // className="text-textGreyLight"
-            >
-              click to get started
-            </a>
+            ok
           </button>
         </article>
         {/* Add device redirect buttons end */}
       </motion.div>
     </motion.section>
   );
+  return ReactDOM.createPortal(modalComponent, modalRoot);
 };
 
 export default DeviceTypeModal;

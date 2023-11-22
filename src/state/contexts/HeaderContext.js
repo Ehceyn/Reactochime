@@ -6,7 +6,7 @@ export const HeaderContext = createContext();
 const HeaderContextProvider = (props) => {
   const [pageTitle, dipsatchPageTitle] = useReducer(
     HeaderReducer,
-    "Welcome Onboard"
+    "Welcome, user-"
   );
 
   return (

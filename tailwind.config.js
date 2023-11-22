@@ -7,15 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        backgroundDark: "#121212",
-        backgroundGrey: "#262727",
+        backgroundDark: "#fff",
+        backgroundGrey: "#F5F6F9",
         backgroundRed: "#D20202",
-        backgroundDarkRed: "#7A0E0E",
-        textGrey: "#C2C2C2",
-        textGreyLighter: "#D4D4D4",
+        backgroundDarkRed: "#c72222",
+        textGrey: "#000",
+        textGreyLighter: "#000",
         textGreyLight: "#F9F9F9",
         textAuthGrey: "#D2CACA",
-        borderColor: "#454545",
+        borderColor: "#e5e7eb",
       },
       fontFamily: {
         poppins: "Poppins",

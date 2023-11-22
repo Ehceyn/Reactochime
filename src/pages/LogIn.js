@@ -73,7 +73,7 @@ const LogIn = () => {
   return (
     <>
       {/* Start of login page */}
-      <section className="bg-backgroundDark overflow-y-auto w-full flex h-full items-center justify-center py-7 scroll">
+      <section className="bg-backgroundDark overflow-y-auto w-full flex h-full text-textGrey items-center justify-center py-7 scroll">
         <div className="w-[450px] h-full rounded-md  px-5 scrollbar-hide">
           {/*Start of Header */}
           <h2 className="text-2xl font-bold text-center font-raleway mb-7">
@@ -180,7 +180,7 @@ const LogIn = () => {
             <article className="flex items-center justify-between w-full mt-5">
               <button
                 type="button"
-                className={`flex justify-center items-center px-4 h-12 w-24 grow text-white rounded-md bg-backgroundGrey border border-solid border-[#dadada26] hover:brightness-90`}
+                className={`flex justify-center items-center px-4 h-12 w-24 grow rounded-md bg-backgroundGrey border border-solid border-[#dadada26] hover:brightness-90`}
               >
                 <FcGoogle fontSize="25px" className="mr-1 ml-2" />
                 Google

@@ -66,7 +66,7 @@ const SignUp = () => {
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
       .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
         "Password must contain at least one uppercase, one lowercase, one number and one special character e.g (!@#$%^&*)"
       )
       .required("This field is required"),
@@ -85,7 +85,7 @@ const SignUp = () => {
   return (
     <>
       {/* Start of Create account page */}
-      <section className="overflow-y-auto w-full flex h-full items-center justify-center py-7 scroll">
+      <section className="overflow-y-auto w-full flex text-textGrey h-full items-center justify-center py-7 scroll">
         <div className="w-[450px] h-full rounded-md  px-5 scrollbar-hide">
           {/*Start of Header */}
           <h2 className="text-2xl font-bold text-center font-raleway mb-7">

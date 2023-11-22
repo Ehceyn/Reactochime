@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HeaderContext } from "../../state/contexts/HeaderContext";
 import AnimatedLogo from "../AnimatedLogo";
+import DeviceTypeModal from "../Modals/DeviceTypeModal";
 
 const SideNav = () => {
   const { dipsatchPageTitle } = useContext(HeaderContext);
+  const [deviceTypeModal, setDeviceTypeModal] = useState(false);
 
   // instance of Navigate hook
   const navigate = useNavigate();
@@ -24,7 +26,7 @@ const SideNav = () => {
   };
 
   return (
-    <div className="fixed w-[15rem] h-[100vh] shadow-md bg-backgroundDark px-1 py-6 sm:flex flex-col justify-between hidden">
+    <div className="fixed w-[15rem] h-[100vh] shadow-md bg-backgroundDark border-r border-borderColor px-1 py-6 sm:flex flex-col justify-between hidden">
       {/* start Reactochime logo */}
       <ul className="px-6">
         <li>
@@ -39,7 +41,7 @@ const SideNav = () => {
         <li
           className="relative"
           onClick={() =>
-            handleRoute("/dashboard", "DISPLAY_DASHBOARD", "Welcome Onboard")
+            handleRoute("/dashboard", "DISPLAY_DASHBOARD", "Welcome")
           }
         >
           <span
@@ -64,7 +66,7 @@ const SideNav = () => {
         {/* end dashboard */}
 
         {/* start reports */}
-        <li
+        {/* <li
           className="relative cursor-pointer"
           onClick={() =>
             handleRoute("/reports", "DISPLAY_REPORTS", "Generate Reports")
@@ -92,7 +94,7 @@ const SideNav = () => {
             </svg>
             <span>Cases</span>
           </span>
-        </li>
+        </li> */}
         {/* end reports */}
       </ul>
       {/* end first list section of the route links */}
@@ -100,7 +102,7 @@ const SideNav = () => {
       {/* start first list section of the route links */}
       <ul className="relative font-poppins">
         {/* start help */}
-        <li className="relative">
+        <li className="relative" onClick={() => setDeviceTypeModal(true)}>
           <a
             className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-textGrey text-ellipsis whitespace-nowrap rounded hover:text-white hover:bg-backgroundDarkRed transition duration-300 ease-in-out"
             href="#!"
@@ -118,12 +120,18 @@ const SideNav = () => {
                 clipRule="evenodd"
               ></path>
             </svg>
-            <span>Help</span>
+            <span>About</span>
           </a>
         </li>
         {/* end help */}
       </ul>
       {/* end first list section of the route links */}
+      {deviceTypeModal && (
+        <DeviceTypeModal
+          toggleDevice={() => setDeviceTypeModal(!deviceTypeModal)}
+          onClickButton={() => setDeviceTypeModal(!deviceTypeModal)}
+        />
+      )}
     </div>
   );
 };

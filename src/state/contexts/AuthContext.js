@@ -260,57 +260,57 @@ const AuthProvider = ({ children }) => {
       .catch((error) => {
         console.error(error);
       });
-    // Check for update on airsyn and proxie in db
-    const airsynStateRef = ref(db, "/users/" + displayName + "/device/airsyn");
-    const proxieStateRef = ref(db, "/users/" + displayName + "/device/proxie");
+    // // Check for update on airsyn and proxie in db
+    // const airsynStateRef = ref(db, "/users/" + displayName + "/device/airsyn");
+    // const proxieStateRef = ref(db, "/users/" + displayName + "/device/proxie");
 
-    onValue(
-      airsynStateRef,
-      (snapshot) => {
-        if (snapshot.exists()) {
-          const data = snapshot.val();
-          console.log(data, "this is the new airsyn data");
-          // Dispatch to userAccountProfileReducer
-          dipsatchUserProfile({
-            type: PROFILE_ACTIONS.UPDATE_AIRSYN,
-            userProfile: data,
-          });
-          console.log("data", displayName);
-        } else {
-          console.log("no data", displayName);
-          return null;
-        }
-      },
-      (error) => {
-        console.error(error, "aaaaaa");
-      }
-    );
-    onValue(
-      proxieStateRef,
-      (snapshot) => {
-        if (snapshot.exists()) {
-          const data = snapshot.val();
-          console.log(data, "proxie");
-          // Dispatch to userAccountProfileReducer
-          dipsatchUserProfile({
-            type: PROFILE_ACTIONS.UPDATE_PROXIE,
-            userProfile: data,
-          });
-          console.log("data", displayName);
-        } else {
-          console.log("no data", displayName);
-          return null;
-        }
-      },
-      (error) => {
-        console.error(error, "bbbbbb");
-      }
-    );
-    // airsynStateRef.on("child_added", (snapshot, prevChildKey) => {
-    //   const newPost = snapshot.val();
-    //   console.log("Author: " + newPost);
-    //   console.log("Previous Post ID: " + prevChildKey);
-    // });
+    // onValue(
+    //   airsynStateRef,
+    //   (snapshot) => {
+    //     if (snapshot.exists()) {
+    //       const data = snapshot.val();
+    //       console.log(data, "this is the new airsyn data");
+    //       // Dispatch to userAccountProfileReducer
+    //       dipsatchUserProfile({
+    //         type: PROFILE_ACTIONS.UPDATE_AIRSYN,
+    //         userProfile: data,
+    //       });
+    //       console.log("data", displayName);
+    //     } else {
+    //       console.log("no data", displayName);
+    //       return null;
+    //     }
+    //   },
+    //   (error) => {
+    //     console.error(error, "aaaaaa");
+    //   }
+    // );
+    // onValue(
+    //   proxieStateRef,
+    //   (snapshot) => {
+    //     if (snapshot.exists()) {
+    //       const data = snapshot.val();
+    //       console.log(data, "proxie");
+    //       // Dispatch to userAccountProfileReducer
+    //       dipsatchUserProfile({
+    //         type: PROFILE_ACTIONS.UPDATE_PROXIE,
+    //         userProfile: data,
+    //       });
+    //       console.log("data", displayName);
+    //     } else {
+    //       console.log("no data", displayName);
+    //       return null;
+    //     }
+    //   },
+    //   (error) => {
+    //     console.error(error, "bbbbbb");
+    //   }
+    // );
+    // // airsynStateRef.on("child_added", (snapshot, prevChildKey) => {
+    // //   const newPost = snapshot.val();
+    // //   console.log("Author: " + newPost);
+    // //   console.log("Previous Post ID: " + prevChildKey);
+    // // });
   };
 
   // error function for auth

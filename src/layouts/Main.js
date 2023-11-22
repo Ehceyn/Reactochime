@@ -1,9 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import Header from "../components/Header/Header";
-import BottomNav from "../components/Navbar/BottomNav";
 import SideNav from "../components/Navbar/SideNav";
 import "../App.css";
-import FloatingIcon from "../components/AddDevicesFloatingIcon/FloatingIcon";
 import MobileSideNav from "../components/Navbar/MobileSideNav";
 import { AuthContext } from "../state/contexts/AuthContext";
 import { useContext, useEffect, useReducer, useState } from "react";
@@ -21,7 +19,6 @@ const Main = () => {
     UserAccountProfileReducer,
     initialProfileState
   );
-  console.log(userProfile, authState, "userProfile");
   const navigate = useNavigate();
 
   // Set launch loader state time out
@@ -30,13 +27,14 @@ const Main = () => {
       userProfile && setLaunchLoaderState(false);
     }, 2000);
   }, [launchLoaderState]);
+  useEffect(() => {
+    setLaunchLoaderState(true);
+  }, []);
 
   // Check if user is authenticated
   useEffect(() => {
     if (authState) {
       fetchProfileAndUpdateState(authState.displayName);
-    } else {
-      setLaunchLoaderState(true);
     }
   }, [authState]);
 
@@ -61,14 +59,6 @@ const Main = () => {
               <Outlet />
             </div>
             {/* end page route content */}
-
-            {/* start bottom nav */}
-            <BottomNav />
-            {/* end bottom nav */}
-
-            {/* start float icon */}
-            <FloatingIcon />
-            {/* end float icon */}
           </div>
           {/* end header and page route content */}
         </div>
