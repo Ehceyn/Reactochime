@@ -59,7 +59,7 @@ const PFR = ({ onHandlePFRSubmit, loading }) => {
             (*First-order Reactions Only)
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* Rate Constant Input */}
           <div className="space-y-2 w-full">
             <p className="font-semibold text-sm capitalize">

@@ -72,6 +72,16 @@ const DashboardComponent = () => {
     setResult(null);
   }, [activeTabs]);
 
+  useEffect(() => {
+    const newQuestionElement = document.getElementById(`result`);
+    if (newQuestionElement) {
+      newQuestionElement.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [result?.reaction_rate]);
+
   return (
     <div>
       <AlertModal display={alertDisplay} />
@@ -79,7 +89,7 @@ const DashboardComponent = () => {
       <div className="bg-backgroundGrey p-0 m-0 box-border h-[80%] w-full flex flex-row justify-between">
         <div className="h-full w-[100%] bg-backgroundGrey flex flex-row justify-between">
           {/* DIV HOLDING CARDS DIV AND DEVICES+USERS DIV */}
-          <div className="flex flex-col space-y-10 sm:w-[69%] w-full">
+          <div className="flex flex-col space-y-10 sm:w-[100%] w-full">
             {/* cSTR + pfr CARDS DIV */}
             <ul
               class="nav nav-tabs w-full gap-3 h-[6rem] grid grid-cols-2 list-none border-b-0 pl-0"

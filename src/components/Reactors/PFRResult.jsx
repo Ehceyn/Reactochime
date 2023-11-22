@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const PFRResult = ({ result }) => {
   const [reactionRate, setReactionRate] = useState("");
-  const [residenceTime, setResidenceTime] = useState("");
+  //   const [residenceTime, setResidenceTime] = useState("");
   const [distanceAtConversion, setDistanceAtConversion] = useState("");
 
   useEffect(() => {
@@ -14,9 +14,12 @@ const PFRResult = ({ result }) => {
   }, [result]);
 
   return (
-    <div className="bg-backgroundDark space-y-5 px-5 py-5 border border-borderColor rounded-lg">
+    <div
+      id="result"
+      className="bg-backgroundDark space-y-5 px-5 py-5 border border-borderColor rounded-lg"
+    >
       <h4 className="font-raleway font-bold sm:text-lg capitalize">Result</h4>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {/* reaction rate */}
         <div className="space-y-2 w-full">
           <p className="font-semibold text-sm capitalize">Reaction Rate</p>
