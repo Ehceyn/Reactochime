@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <div
-      className={`sticky top-0 px-4 sm:px-6 pt-[1rem] pb-0  mb-[0.2rem] h-[6rem] sm:h-[4rem] bg-backgroundGrey flex sm:flex-row flex-col-reverse justify-end sm:justify-between sm:items-center transition-all z-[10000]`}
+      className={`sticky top-0 border-b px-4 sm:px-6 pt-[1rem] pb-0  mb-[0.2rem] h-[6rem] sm:h-[4rem] bg-backgroundGrey flex sm:flex-row flex-col-reverse justify-end sm:justify-between sm:items-center transition-all z-[10000]`}
     >
       {/* start page title */}
       <div className="h-full flex items-center overflow-hidden text-ellipsis whitespace-nowrap">

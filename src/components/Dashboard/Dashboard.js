@@ -8,6 +8,7 @@ import CSTRResult from "../Reactors/CSTRResult";
 import PFR from "../Reactors/PFR";
 import PFRResult from "../Reactors/PFRResult";
 import { useEffect } from "react";
+import Charts from "../Charts/Charts";
 
 const DashboardComponent = () => {
   const [alertDisplay, setAlertDisplay] = useState(false);
@@ -49,6 +50,7 @@ const DashboardComponent = () => {
     setResult(responseData);
     setLoading(false);
   };
+
   const handlePFRSubmit = async (data) => {
     setLoading(true);
 
@@ -65,7 +67,7 @@ const DashboardComponent = () => {
 
     const responseData = await response.json();
     setResult(responseData);
-    setLoading(true);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -73,9 +75,9 @@ const DashboardComponent = () => {
   }, [activeTabs]);
 
   useEffect(() => {
-    const newQuestionElement = document.getElementById(`result`);
-    if (newQuestionElement) {
-      newQuestionElement.scrollIntoView({
+    const resultDiv = document.getElementById(`result`);
+    if (resultDiv) {
+      resultDiv.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
@@ -157,6 +159,7 @@ const DashboardComponent = () => {
                   loading={loading}
                 />
                 {result !== null && <CSTRResult result={result} />}
+                {result !== null && <Charts result={result} />}
               </>
             ) : (
               <>
@@ -165,6 +168,7 @@ const DashboardComponent = () => {
                   loading={loading}
                 />
                 {result !== null && <PFRResult result={result} />}
+                {result !== null && <Charts result={result} />}
               </>
             )}
 

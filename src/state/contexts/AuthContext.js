@@ -72,7 +72,6 @@ const AuthProvider = ({ children }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const { user } = userCredential;
-        console.log(user.uid, "user id");
 
         if (auth.currentUser) {
           // updating the auth success: if signup is successfull
@@ -93,24 +92,22 @@ const AuthProvider = ({ children }) => {
             user.uid,
             "https://res.cloudinary.com/zichygraphs/image/upload/v1648953021/1_ljgwqe.png"
           );
-
-          console.log(user);
         }
       })
       .catch((err) => {
         if (err.code === "auth/invalid-email") {
           errorFunc("Email is invalid");
-          console.log("Email is invalid");
+          // console.log("Email is invalid");
         } else if (err.code === "auth/network-request-failed") {
           errorFunc("Please check your internet connection");
-          console.log("Please check your internet connection");
+          // console.log("Please check your internet connection");
         } else if (err.code === "auth/email-already-in-use") {
           errorFunc("Email already exists");
-          console.log("Email already exists");
+          // console.log("Email already exists");
         } else if (err.code === "auth/weak-password") {
           errorFunc("Password should be at least 6 characters ");
         } else {
-          console.log(err.code, "=>", err.message, "something went wrong");
+          // console.log(err.code, "=>", err.message, "something went wrong");
           errorFunc("Something went wrong");
         }
       });
@@ -128,12 +125,12 @@ const AuthProvider = ({ children }) => {
     sendEmailVerification(auth.currentUser, actionCodeSettings)
       .then(() => {
         // Email verification sent!
-        console.log("email verification success");
+        // console.log("email verification success");
         setVerifyEmailSuccess((prevState) => (prevState = !prevState));
         // ...
       })
       .catch((err) => {
-        console.log("email verification no go", err);
+        // console.log("email verification no go", err);
       });
   };
 
@@ -153,7 +150,7 @@ const AuthProvider = ({ children }) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("user", user);
+        // console.log("user", user);
 
         // Check if user is verified
         if (user.emailVerified) {
@@ -190,10 +187,10 @@ const AuthProvider = ({ children }) => {
           errorFunc("ooopppss something went wrong");
         }
 
-        console.log(error.code, "error message");
+        // console.log(error.code, "error message");
       });
 
-    console.log(state, "this is the updated state");
+    // console.log(state, "this is the updated state");
   };
 
   // create user account profile
@@ -225,7 +222,7 @@ const AuthProvider = ({ children }) => {
 
     // join the array back to a string
     const formattedEmail = formattedArr.join("");
-    console.log(email, formattedEmail, "creating the account");
+    // console.log(email, formattedEmail, "creating the account");
     // set the formatted email
 
     set(ref(db, "users/" + formattedEmail), profileAccount);
@@ -247,14 +244,14 @@ const AuthProvider = ({ children }) => {
     get(ref(db, "users/" + displayName))
       .then((snapshot) => {
         if (snapshot.exists()) {
-          console.log(snapshot.val(), "snapshot");
+          // console.log(snapshot.val(), "snapshot");
           // Dispatch to userAccountProfileReducer
           dipsatchUserProfile({
             type: PROFILE_ACTIONS.CREATE_USER_PROFILE,
             userProfile: snapshot.val(),
           });
         } else {
-          console.log("No data available");
+          // console.log("No data available");
         }
       })
       .catch((error) => {
@@ -269,15 +266,15 @@ const AuthProvider = ({ children }) => {
     //   (snapshot) => {
     //     if (snapshot.exists()) {
     //       const data = snapshot.val();
-    //       console.log(data, "this is the new airsyn data");
+    // console.log(data, "this is the new airsyn data");
     //       // Dispatch to userAccountProfileReducer
     //       dipsatchUserProfile({
     //         type: PROFILE_ACTIONS.UPDATE_AIRSYN,
     //         userProfile: data,
     //       });
-    //       console.log("data", displayName);
+    // console.log("data", displayName);
     //     } else {
-    //       console.log("no data", displayName);
+    // console.log("no data", displayName);
     //       return null;
     //     }
     //   },
@@ -290,15 +287,15 @@ const AuthProvider = ({ children }) => {
     //   (snapshot) => {
     //     if (snapshot.exists()) {
     //       const data = snapshot.val();
-    //       console.log(data, "proxie");
+    // console.log(data, "proxie");
     //       // Dispatch to userAccountProfileReducer
     //       dipsatchUserProfile({
     //         type: PROFILE_ACTIONS.UPDATE_PROXIE,
     //         userProfile: data,
     //       });
-    //       console.log("data", displayName);
+    // console.log("data", displayName);
     //     } else {
-    //       console.log("no data", displayName);
+    // console.log("no data", displayName);
     //       return null;
     //     }
     //   },
@@ -308,8 +305,8 @@ const AuthProvider = ({ children }) => {
     // );
     // // airsynStateRef.on("child_added", (snapshot, prevChildKey) => {
     // //   const newPost = snapshot.val();
-    // //   console.log("Author: " + newPost);
-    // //   console.log("Previous Post ID: " + prevChildKey);
+    //   console.log("Author: " + newPost);
+    //   console.log("Previous Post ID: " + prevChildKey);
     // // });
   };
 
