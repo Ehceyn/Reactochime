@@ -61,7 +61,7 @@ const CSTRResult = ({ result }) => {
               <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
                 {result?.exit_concentration || ""}
               </div>
-              <p className="font-semibold text-xs capitalize">*Unit: mol/m³</p>
+              <p className="font-semibold text-xs capitalize"> *Unit: mol/s</p>
             </div>
             {/* space time */}
             <div className="space-y-2">

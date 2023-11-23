@@ -175,7 +175,7 @@ const CSTR = ({ onHandleCSTRSubmit, loading }) => {
                     </span>
                   )}
                   <p className="font-semibold text-xs capitalize">
-                    *Unit: mol/m³
+                    *Unit: mol/s
                   </p>
                 </div>
                 <div className="space-y-2 w-full">
