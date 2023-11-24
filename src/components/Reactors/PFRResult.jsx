@@ -6,6 +6,7 @@ const PFRResult = ({ result }) => {
   const toggleInputs = () => {
     setIsHidden((prevState) => !prevState);
   };
+
   return (
     <div className="bg-backgroundDark space-y-5 px-5 py-5 border border-backgroundRed rounded-lg">
       <div className="flex items-center justify-between">
@@ -20,7 +21,7 @@ const PFRResult = ({ result }) => {
         >
           <span>{isHidden ? "show" : "Hide"}</span>
         </button>
-      </div>{" "}
+      </div>
       {result.map((result, index) => (
         <div
           className={`${
@@ -34,35 +35,13 @@ const PFRResult = ({ result }) => {
             </button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
-            {/* reaction rate */}
+            {/* space time */}
             <div className="space-y-2">
-              <p className="font-semibold text-sm capitalize">Reaction Rate</p>
+              <p className="font-semibold text-sm capitalize">conversion</p>
               <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
-                {result?.rate_of_reaction || ""}
+                {result?.conversion || ""}
               </div>
-              <p className="font-semibold text-xs capitalize">
-                *Unit: mol/(m³s)
-              </p>
-            </div>
-            {/* residence time */}
-            <div className="space-y-2">
-              <p className="font-semibold text-sm capitalize">Residence Time</p>
-              <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
-                {result?.residence_time || ""}
-              </div>
-              <p className="font-semibold text-xs capitalize">*Unit: seconds</p>
-            </div>
-            {/* exit concentration */}
-            <div className="space-y-2">
-              <p className="font-semibold text-sm capitalize">
-                Exit Concentration
-              </p>
-              <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
-                {result?.exit_concentration || ""}
-              </div>
-              <p className="font-semibold text-xs capitalize">
-                *Unit: *Unit: mol/s
-              </p>
+              <p className="font-semibold text-xs capitalize">*Unit: None</p>
             </div>
             {/* space time */}
             <div className="space-y-2">
@@ -70,7 +49,7 @@ const PFRResult = ({ result }) => {
               <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
                 {result?.space_time || ""}
               </div>
-              <p className="font-semibold text-xs capitalize">*Unit: seconds</p>
+              <p className="font-semibold text-xs capitalize">*Unit: hour</p>
             </div>
             {/* space velocity */}
             <div className="space-y-2">
@@ -79,7 +58,7 @@ const PFRResult = ({ result }) => {
                 {result?.space_velocity || ""}
               </div>
               <p className="font-semibold text-xs capitalize">
-                *Unit: per second
+                *Unit: per hour
               </p>
             </div>
             {/* reactor height */}
@@ -89,6 +68,14 @@ const PFRResult = ({ result }) => {
                 {result?.reactor_height || ""}
               </div>
               <p className="font-semibold text-xs capitalize">*Unit: meters</p>
+            </div>
+            {/* reactor volume */}
+            <div className="space-y-2">
+              <p className="font-semibold text-sm capitalize">Reactor Volume</p>
+              <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
+                {result?.reactor_volume || ""}
+              </div>
+              <p className="font-semibold text-xs capitalize">*Unit: m³</p>
             </div>
           </div>
         </div>
