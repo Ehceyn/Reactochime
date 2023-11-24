@@ -38,7 +38,7 @@ const CSTRResult = ({ result }) => {
             {/* space time */}
             <div className="space-y-2">
               <p className="font-semibold text-sm capitalize">conversion</p>
-              <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
+              <div className="w-full sm:min-w-[256px] flex font-poppins items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
                 {result?.conversion || ""}
               </div>
               <p className="font-semibold text-xs capitalize">*Unit: None</p>
@@ -46,7 +46,7 @@ const CSTRResult = ({ result }) => {
             {/* space time */}
             <div className="space-y-2">
               <p className="font-semibold text-sm capitalize">Space Time</p>
-              <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
+              <div className="w-full sm:min-w-[256px] flex font-poppins items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
                 {result?.space_time || ""}
               </div>
               <p className="font-semibold text-xs capitalize">*Unit: hour</p>
@@ -54,7 +54,7 @@ const CSTRResult = ({ result }) => {
             {/* space velocity */}
             <div className="space-y-2">
               <p className="font-semibold text-sm capitalize">Space Velocity</p>
-              <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
+              <div className="w-full sm:min-w-[256px] flex font-poppins items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
                 {result?.space_velocity || ""}
               </div>
               <p className="font-semibold text-xs capitalize">
@@ -64,7 +64,7 @@ const CSTRResult = ({ result }) => {
             {/* reactor height */}
             <div className="space-y-2">
               <p className="font-semibold text-sm capitalize">Reactor Height</p>
-              <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
+              <div className="w-full sm:min-w-[256px] flex font-poppins items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
                 {result?.reactor_height || ""}
               </div>
               <p className="font-semibold text-xs capitalize">*Unit: meters</p>
@@ -72,7 +72,7 @@ const CSTRResult = ({ result }) => {
             {/* reactor volume */}
             <div className="space-y-2">
               <p className="font-semibold text-sm capitalize">Reactor Volume</p>
-              <div className="min-w-[256px] flex items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
+              <div className="w-full sm:min-w-[256px] flex font-poppins items-center bg-backgroundGrey min-h-[46px] border py-2 border-borderColor rounded-md px-3">
                 {result?.reactor_volume || ""}
               </div>
               <p className="font-semibold text-xs capitalize">*Unit: m³</p>
