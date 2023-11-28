@@ -101,7 +101,7 @@ const CSTR = ({ onHandleCSTRSubmit, loading }) => {
                 </span>
               )}
               <p className="font-semibold text-xs capitalize">
-                *Unit: per second
+                *Unit: per hour
               </p>
             </div>
             <div className="space-y-2 w-full">
