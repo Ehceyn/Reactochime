@@ -9,6 +9,7 @@ import PFR from "../Reactors/PFR";
 import PFRResult from "../Reactors/PFRResult";
 import { useEffect } from "react";
 import Charts from "../Charts/Charts";
+import API_ENDPOINTS from "../../config/api";
 
 const DashboardComponent = () => {
   const [alertDisplay, setAlertDisplay] = useState(false);
@@ -35,39 +36,56 @@ const DashboardComponent = () => {
 
   const handleCSTRSubmit = async (data) => {
     setLoading(true);
-    const response = await fetch(
-      "https://ehceyn.pythonanywhere.com/cstr_calculate",
-      {
+    try {
+      const response = await fetch(API_ENDPOINTS.CSTR, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      }
-    );
+      });
 
-    const responseData = await response.json();
-    setResult(responseData);
-    setLoading(false);
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+      setResult(responseData);
+    } catch (error) {
+      console.error("Error calculating CSTR:", error);
+      alert(
+        "Error calculating CSTR. Please check if the API server is running."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handlePFRSubmit = async (data) => {
     setLoading(true);
-
-    const response = await fetch(
-      "https://ehceyn.pythonanywhere.com/pfr_calculate",
-      {
+    try {
+      const response = await fetch(API_ENDPOINTS.PFR, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      }
-    );
+      });
 
-    const responseData = await response.json();
-    setResult(responseData);
-    setLoading(false);
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+      setResult(responseData);
+    } catch (error) {
+      console.error("Error calculating PFR:", error);
+      alert(
+        "Error calculating PFR. Please check if the API server is running."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
