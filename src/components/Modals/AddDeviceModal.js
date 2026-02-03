@@ -18,7 +18,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const AddDeviceModal = (props) => {
-  const [loader, setLoader] = useState(false);
+  const [loader] = useState(false);
   // Formik initial values ... this is the initial form state
   let initialValues = {
     name: "",

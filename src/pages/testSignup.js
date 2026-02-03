@@ -1,19 +1,17 @@
-import { useContext, useEffect, useReducer, useState } from "react";
-import { ACTIONS } from "../state/actions/authActions";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../state/contexts/AuthContext";
-import authReducer from "../state/reducers/AuthReducer";
 
 const TestSignUp = () => {
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
-    const  { state, signUp, authSuccess, signIn, updateState, error, createAccount } = useContext(AuthContext)
+    const  { state, signUp, authSuccess, signIn, error, createAccount } = useContext(AuthContext)
     // const [ device, setDevice] = useState([
     //     {deviceName: 'proxie kitchen', deviceLocation: 'office'},
     //     {deviceName: 'airsyn room', deviceLocation: 'office'},
     //     {deviceName: 'birsyn room', deviceLocation: 'office'},
     // ])
 
-    const [allData,setAllData] = useState([
+    const [allData] = useState([
         {deviceName: 'proxie kitchen', deviceLocation: 'office'},
         {deviceName: 'airsyn room', deviceLocation: 'office'},
         {deviceName: 'birsyn room', deviceLocation: 'office'},
@@ -21,18 +19,10 @@ const TestSignUp = () => {
     
     const [filteredData,setFilteredData] = useState(allData);
 
-    const handleSearch = (value) =>{
-        let result = [];
-        result = allData.filter((data) => {
-            return data.deviceName.includes(value)
-        })
-        setFilteredData(result);
-    }   
-
-    
     useEffect(() => {
-        handleSearch(email)
-    }, [email])
+        let result = allData.filter((data) => data.deviceName.includes(email));
+        setFilteredData(result);
+    }, [email, allData])
 
     // console.log(filterd)
 

@@ -14,8 +14,6 @@ export const initialState = {
 }
 
 const authReducer = (state, action) => {
-    const { email, password } = action.payload
-
     switch(action.type) {
         case ACTIONS.SIGNUP:
             // return { username: state.username = 'precious' }

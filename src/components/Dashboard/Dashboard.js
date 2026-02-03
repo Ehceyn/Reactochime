@@ -1,6 +1,4 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { HeaderContext } from "../../state/contexts/HeaderContext";
+import { useState } from "react";
 import RoundWithPlus from "../icons/RoundWithPlus";
 import AlertModal from "../Modals/AlertModal";
 import CSTR from "../Reactors/CSTR";
@@ -12,27 +10,10 @@ import Charts from "../Charts/Charts";
 import API_ENDPOINTS from "../../config/api";
 
 const DashboardComponent = () => {
-  const [alertDisplay, setAlertDisplay] = useState(false);
+  const [alertDisplay] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { dipsatchPageTitle } = useContext(HeaderContext);
   const [activeTabs, setActiveTabs] = useState("1");
   const [result, setResult] = useState(null);
-
-  // instance of Navigate hook
-  const navigate = useNavigate();
-
-  // routing to other routes
-  const handleRoute = (route, action, title) => {
-    // routing to the desired route
-    navigate(route);
-
-    // dispatching the title of the header,
-    // depending on the route
-    dipsatchPageTitle({
-      type: action,
-      pageTitle: title,
-    });
-  };
 
   const handleCSTRSubmit = async (data) => {
     setLoading(true);

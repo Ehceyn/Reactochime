@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import AnimatedLogo from "../AnimatedLogo";
 
 const LaunchLoader = (props) => {
-  const [loader, setLoader] = useState(false);
+  useState(false);
 
   return (
     <motion.section

@@ -6,11 +6,10 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
   sendEmailVerification,
-  updateCurrentUser,
   onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
-import { getDatabase, ref, set, get, onValue } from "firebase/database";
+import { ref, set, get } from "firebase/database";
 import { db } from "../../firebase/firebase";
 import { ACTIONS } from "../actions/authActions";
 import { ACTIONS as PROFILE_ACTIONS } from "../actions/userProfileActions";
@@ -54,7 +53,7 @@ const AuthProvider = ({ children }) => {
       }
     );
     return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
-  }, []);
+  }, [getUserAuth, navigate]);
 
   // sign up user
   const signUp = (email, password) => {

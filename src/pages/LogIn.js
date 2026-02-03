@@ -5,12 +5,11 @@ import Loader from "../components/Auth/Loader/Loader";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import * as Yup from "yup";
-import GoToTop from "../components/GoToTop/GoToTop";
 import { AuthContext } from "../state/contexts/AuthContext";
 import AlertModal from "../components/Modals/AlertModal";
 
 const LogIn = () => {
-  const [loader, setLoader] = useState(false);
+  useState(false);
   const [displayAlert, setDisplayAlert] = useState(false);
   const [alertHeading, setAlertHeading] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
@@ -20,7 +19,7 @@ const LogIn = () => {
   const navigate = useNavigate();
 
   // Auth context
-  const { state, authSuccess, signIn, updateState, error } =
+  const { authSuccess, signIn, error } =
     useContext(AuthContext);
 
   // Listen for error
@@ -31,7 +30,7 @@ const LogIn = () => {
       setAlertMessage(error.errorMsg);
       setAlertStatus("error");
     }
-  }, [error.isError]);
+  }, [error.isError, error.errorMsg]);
 
   // Console log context
   // console.log(state);
@@ -57,7 +56,7 @@ const LogIn = () => {
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
       .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
         "Password must contain at least one uppercase, one lowercase, one number and one special character e.g (!@#$%^&*)"
       )
       .required("This field is required"),

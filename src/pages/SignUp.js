@@ -7,10 +7,9 @@ import { FcGoogle } from "react-icons/fc";
 import * as Yup from "yup";
 import { AuthContext } from "../state/contexts/AuthContext";
 import AlertModal from "../components/Modals/AlertModal";
-import { AnimatePresence } from "framer-motion";
 
 const SignUp = () => {
-  const [loader, setLoader] = useState(false);
+  useState(false);
   const [displayAlert, setDisplayAlert] = useState(false);
   const [alertHeading, setAlertHeading] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
@@ -20,6 +19,7 @@ const SignUp = () => {
   // Auth context
   const { state, signUp, authSuccess, error, verifyEmailSuccess } =
     useContext(AuthContext);
+  const navigate = useNavigate();
 
   // Listen for error
   useEffect(() => {
@@ -29,14 +29,14 @@ const SignUp = () => {
       setAlertMessage(error.errorMsg);
       setAlertStatus("error");
     }
-  }, [error.isError]);
+  }, [error.isError, error.errorMsg]);
 
   // Check if verification email was sent
   useEffect(() => {
     if (verifyEmailSuccess) {
       navigate("/auth/verify_email");
     }
-  }, [verifyEmailSuccess]);
+  }, [verifyEmailSuccess, navigate]);
 
   // Console log context
   console.log(state);
@@ -47,9 +47,6 @@ const SignUp = () => {
   const handleSignUp = (email, password) => {
     signUp(email, password);
   };
-
-  //   Initialize the navigate hook
-  const navigate = useNavigate();
 
   // Formik initial values ... this is the initial form state
   let initialValues = {

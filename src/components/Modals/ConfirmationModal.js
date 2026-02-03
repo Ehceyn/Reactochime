@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import Loader from "../Auth/Loader/Loader";
 
 const ConfirmationModal = (props) => {
-  const [loader, setLoader] = useState(false);
+  const [loader] = useState(false);
 
   return (
     <motion.section

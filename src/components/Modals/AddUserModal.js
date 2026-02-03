@@ -11,14 +11,13 @@
 
 import React, { useState } from "react";
 import { authLeft } from "../../animations/animations";
-import { scaleUp } from "../../animations/animations";
 import { motion } from "framer-motion";
 import Loader from "../Auth/Loader/Loader";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const AddUserModal = (props) => {
-  const [loader, setLoader] = useState(false);
+  const [loader] = useState(false);
   // Formik initial values ... this is the initial form state
   let initialValues = {
     name: "",

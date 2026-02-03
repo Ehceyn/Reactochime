@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CustomInput from "../CustomInput/CustomInput";
 import Loader from "../Auth/Loader/Loader";
 

@@ -1,11 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Auth/Loader/Loader";
 import SuccessIcon from "../components/icons/SuccessIcon";
 import FilterUsersModal from "../components/Modals/FilterUsersModal";
 
 const SuccessPage = () => {
-  const [loader, setLoader] = useState(false);
+  const [loader] = useState(false);
   const navigate = useNavigate();
 
   return (

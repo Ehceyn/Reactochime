@@ -18,7 +18,7 @@ import ErrorIcon from "../icons/ErrorIcon";
 import SuccessIcon from "../icons/SuccessIcon";
 
 const AlertModal = (props) => {
-  const [loader, setLoader] = useState(false);
+  const [loader] = useState(false);
 
   return (
     <motion.section

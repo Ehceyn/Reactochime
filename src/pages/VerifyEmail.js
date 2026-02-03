@@ -1,15 +1,10 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useContext } from "react";
 import EmailImage from "../../src/components/Auth/EmailImage/EmailImage";
-import Loader from "../components/Auth/Loader/Loader";
-import AddDeviceModal from "../components/Modals/AddDeviceModal";
 import AddUserModal from "../components/Modals/AddUserModal";
-import AlertModal from "../components/Modals/AlertModal";
-import ConfirmationModal from "../components/Modals/ConfirmationModal";
-import FilterUsersModal from "../components/Modals/FilterUsersModal";
 import { AuthContext } from "../state/contexts/AuthContext";
 
 const VerifyEmail = () => {
-  const [loader, setLoader] = useState(false);
+  useState(false);
   // Auth context
   const { state } = useContext(AuthContext);
 

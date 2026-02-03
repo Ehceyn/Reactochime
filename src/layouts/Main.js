@@ -15,18 +15,15 @@ const Main = () => {
   const [launchLoaderState, setLaunchLoaderState] = useState(true);
   const { userProfile, authState, fetchProfileAndUpdateState } =
     useContext(AuthContext);
-  const [_, dipsatchUserProfile] = useReducer(
-    UserAccountProfileReducer,
-    initialProfileState
-  );
-  const navigate = useNavigate();
+  useReducer(UserAccountProfileReducer, initialProfileState);
+  useNavigate();
 
   // Set launch loader state time out
   useEffect(() => {
     setTimeout(() => {
       userProfile && setLaunchLoaderState(false);
     }, 2000);
-  }, [launchLoaderState]);
+  }, [launchLoaderState, userProfile]);
   useEffect(() => {
     setLaunchLoaderState(true);
   }, []);
@@ -36,7 +33,7 @@ const Main = () => {
     if (authState) {
       fetchProfileAndUpdateState(authState.displayName);
     }
-  }, [authState]);
+  }, [authState, fetchProfileAndUpdateState]);
 
   return (
     <>

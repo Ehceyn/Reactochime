@@ -16,7 +16,6 @@ import ReactDOM from "react-dom";
 import { authLeft } from "../../animations/animations";
 import { scaleUp } from "../../animations/animations";
 import { motion } from "framer-motion";
-import Loader from "../Auth/Loader/Loader";
 import Welcome from "../icons/Welcome";
 
 const DeviceTypeModal = (props) => {

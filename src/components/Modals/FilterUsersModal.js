@@ -11,7 +11,6 @@
 
 import React, { useState } from "react";
 import { authLeft } from "../../animations/animations";
-import { scaleUp } from "../../animations/animations";
 import { motion } from "framer-motion";
 import Loader from "../Auth/Loader/Loader";
 import { useFormik } from "formik";
@@ -22,7 +21,7 @@ import {
 } from "react-icons/md";
 
 const FilterUsersModal = (props) => {
-  const [loader, setLoader] = useState(false);
+  const [loader] = useState(false);
   const [showList1, setShowList1] = useState(false); //Handles the show/hide of the list oft input1
   const [showList2, setShowList2] = useState(false); //Handles the show/hide of the list oft input2
   const [showList3, setShowList3] = useState(false); //Handles the show/hide of the list oft input3

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../state/contexts/AuthContext";
 import { DisplaySidebarContext } from "../../state/contexts/DisplaySidebarContext";
 import { HeaderContext } from "../../state/contexts/HeaderContext";
@@ -14,7 +14,7 @@ const Header = () => {
 
   const { toggleSideNav } = useContext(DisplaySidebarContext);
 
-  const navigate = useNavigate();
+  useNavigate();
 
   // observe the pageTitle state for the dashboard
   useEffect(() => {
