@@ -12,10 +12,16 @@ import {
 
 // Custom tick formatter for better readability
 const formatTick = (value) => {
-  if (value >= 1000) {
-    return `${(value / 1000).toFixed(1)}k`;
+  const num = Number(value);
+  if (Number.isNaN(num)) {
+    // Fallback: if value isn't numeric, just return it as-is
+    return value;
   }
-  return value.toFixed(1);
+
+  if (num >= 1000) {
+    return `${(num / 1000).toFixed(1)}k`;
+  }
+  return num.toFixed(1);
 };
 
 // Custom tooltip formatter factory
@@ -40,64 +46,64 @@ const Charts = ({ result }) => {
   // Transform data for Rate of Reaction vs. Reactor Volume
   const transformRateOfReactionVolumeData = () => {
     return result.map((value, index) => ({
-      reactorVolume: parseFloat(value.reactor_volume).toPrecision(3),
-      rateOfReaction: parseFloat(value.rate_of_reaction).toPrecision(3),
+      reactorVolume: Number(value.reactor_volume),
+      rateOfReaction: Number(value.rate_of_reaction),
     }));
   };
 
   // Transform data for Exit Concentration vs. Reactor Volume
   const transformExitConcentrationVolumeData = () => {
     return result.map((value, index) => ({
-      reactorVolume: parseFloat(value.reactor_volume).toPrecision(3),
-      exitConcentration: parseFloat(value.exit_concentration).toPrecision(3),
+      reactorVolume: Number(value.reactor_volume),
+      exitConcentration: Number(value.exit_concentration),
     }));
   };
 
   // Transform data for Space Time vs. Reactor Volume
   const transformSpaceTimeVolumeData = () => {
     return result.map((value, index) => ({
-      reactorVolume: parseFloat(value.reactor_volume).toPrecision(3),
-      spaceTime: parseFloat(value.space_time).toPrecision(3),
+      reactorVolume: Number(value.reactor_volume),
+      spaceTime: Number(value.space_time),
     }));
   };
 
   // Transform data for Space Velocity vs. Reactor Volume
   const transformSpaceVelocityVolumeData = () => {
     return result.map((value, index) => ({
-      reactorVolume: parseFloat(value.reactor_volume).toPrecision(3),
-      spaceVelocity: parseFloat(value.space_velocity).toPrecision(3),
+      reactorVolume: Number(value.reactor_volume),
+      spaceVelocity: Number(value.space_velocity),
     }));
   };
 
   // Transform data for Rate of Reaction vs. Reactor Height
   const transformRateOfReactionHeightData = () => {
     return result.map((value, index) => ({
-      reactorHeight: parseFloat(value.reactor_height).toPrecision(3),
-      rateOfReaction: parseFloat(value.rate_of_reaction).toPrecision(3),
+      reactorHeight: Number(value.reactor_height),
+      rateOfReaction: Number(value.rate_of_reaction),
     }));
   };
 
   // Transform data for Exit Concentration vs. Reactor Height
   const transformExitConcentrationHeightData = () => {
     return result.map((value, index) => ({
-      reactorHeight: parseFloat(value.reactor_height).toPrecision(3),
-      exitConcentration: parseFloat(value.exit_concentration).toPrecision(3),
+      reactorHeight: Number(value.reactor_height),
+      exitConcentration: Number(value.exit_concentration),
     }));
   };
 
   // Transform data for Space Time vs. Reactor Height
   const transformSpaceTimeHeightData = () => {
     return result.map((value, index) => ({
-      reactorHeight: parseFloat(value.reactor_height).toPrecision(3),
-      spaceTime: parseFloat(value.space_time).toPrecision(3),
+      reactorHeight: Number(value.reactor_height),
+      spaceTime: Number(value.space_time),
     }));
   };
 
   // Transform data for Space Velocity vs. Reactor Height
   const transformSpaceVelocityHeightData = () => {
     return result.map((value, index) => ({
-      reactorHeight: parseFloat(value.reactor_height).toPrecision(3),
-      spaceVelocity: parseFloat(value.space_velocity).toPrecision(3),
+      reactorHeight: Number(value.reactor_height),
+      spaceVelocity: Number(value.space_velocity),
     }));
   };
 
